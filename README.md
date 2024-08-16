@@ -21,7 +21,7 @@ A simple RESTful API built with Node.js and Express.js for managing tasks. This 
 2. **Install dependencies:**
    npm install
 3. **Start the server:**
-4. npm run start
+   npm run start
    
 ## Validation Rules
 Title: Must be a non-empty string if provided.
