@@ -1,6 +1,31 @@
+const fs = require('fs');
+const path = require('path');
+
 class TaskRepository {
     constructor() {
-        this.tasks = [];
+        this.filePath = path.join(__dirname, '../../../task.json');
+        this.tasks = this._readTasksFromFile().tasks || [];
+    }
+
+    // Helper method to read tasks from the JSON file
+    _readTasksFromFile() {
+        try {
+            const data = fs.readFileSync(this.filePath, 'utf8');
+            return JSON.parse(data) || { tasks: [] };
+        } catch (err) {
+            console.error('Error reading tasks.json:', err);
+            return { tasks: [] };
+        }
+    }
+
+    // Helper method to write tasks to the JSON file
+    _writeTasksToFile() {
+        try {
+            const data = { tasks: this.tasks };
+            fs.writeFileSync(this.filePath, JSON.stringify(data, null, 2));
+        } catch (err) {
+            console.error('Error writing to tasks.json:', err);
+        }
     }
 
     getAllTasks() {
@@ -14,6 +39,7 @@ class TaskRepository {
     createTask(task) {
         task.id = this.tasks.length + 1;
         this.tasks.push(task);
+        this._writeTasksToFile();
         return task;
     }
 
@@ -22,6 +48,7 @@ class TaskRepository {
         if (taskIndex === -1) return null;
 
         this.tasks[taskIndex] = { id, ...updatedTask };
+        this._writeTasksToFile();
         return this.tasks[taskIndex];
     }
 
@@ -30,6 +57,7 @@ class TaskRepository {
         if (taskIndex === -1) return null;
 
         const deletedTask = this.tasks.splice(taskIndex, 1);
+        this._writeTasksToFile();
         return deletedTask[0];
     }
 }
