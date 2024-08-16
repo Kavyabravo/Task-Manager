@@ -33,7 +33,7 @@ class TaskController {
         const deletedTask = this.taskService.deleteTask(parseInt(req.params.id));
         if (!deletedTask) return res.status(404).json({ message: 'Task not found' });
 
-        res.status(204).end();
+        res.status(200).end();
     };
 }
 
