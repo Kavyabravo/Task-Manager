@@ -25,5 +25,7 @@ A simple RESTful API built with Node.js and Express.js for managing tasks. This 
    
 ## Validation Rules
 Title: Must be a non-empty string if provided.
+
 Description: Must be a non-empty string if provided.
+
 Completed: Must be a boolean value if provided.
