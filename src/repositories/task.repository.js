@@ -3,7 +3,7 @@ const path = require('path');
 
 class TaskRepository {
     constructor() {
-        this.filePath = path.join(__dirname, '../../../task.json');
+        this.filePath = path.join(__dirname, '../../task.json');
         this.tasks = this._readTasksFromFile().tasks || [];
     }
 

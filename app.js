@@ -1,5 +1,5 @@
 const express = require('express');
-const taskRoutes = require('./src/task-manager/routes/task.route');
+const taskRoutes = require('./src/routes/task.route');
 
 const app = express();
 const port = 3000;
