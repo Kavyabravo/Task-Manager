@@ -11,7 +11,7 @@ A simple RESTful API built with Node.js and Express.js for managing tasks. This 
 - Input validation and error handling
 
 ## Postman Collection
-[Task Manager APIs](https://www.postman.com/airtribe-kav/workspace/backend/collection/10389495-e9e41a67-4a8d-4c78-8d5e-59d397147b6b?action=share&creator=10389495)
+[Task Manager APIs](https://documenter.getpostman.com/view/10389495/2sA3s9CTmW)
 
 ## Installation
 
